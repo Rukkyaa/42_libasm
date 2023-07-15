@@ -1,8 +1,8 @@
 section .data
-  ;pas de data
+  ;no data
 
 section .bss
-  ;pas de bss
+  ;no bss
 
 section .text
 	global ft_strlen
