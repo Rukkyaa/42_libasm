@@ -1,10 +1,12 @@
 #include "libasm.h"
 
 int main() {
-    const char *str = "Hello world !";
-    size_t length = ft_strlen(str);
-    
-    printf("Length of the string: %zu\n", length);
-    
+    char source[] = "Hello World !";
+    char destination[20];
+
+    ft_strcpy(destination, source);
+
+    printf("La chaîne de caractères copiée est : %s\n", destination);
+
     return 0;
 }

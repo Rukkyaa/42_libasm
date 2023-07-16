@@ -2,12 +2,13 @@ NAME = libasm.a
 EXEC = libasm
 
 SRCS = $(addprefix ft_, $(addsuffix .s, \
-	strlen))
+	strlen \
+	strcpy))
 OBJS = $(SRCS:%.s=srcs/.build/%.o)
 DEPS = $(SRCS:%.s=srcs/.build/%.d)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 AS = nasm
 ASFLAGS = -f elf64

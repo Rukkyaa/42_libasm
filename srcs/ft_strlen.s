@@ -7,7 +7,7 @@ section .bss
 section .text
 	global ft_strlen
 
-ft_strlen:				;ft_strlen(const char *s)
+ft_strlen:	;ft_strlen(const char *s)
 	mov rbx, rdi		;take the first argument(rdi) and put it in rbx
 	cmp rbx, 0			;check if rbx is null
 	je .end_ft_strlen	;if it is, jump to end
