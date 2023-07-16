@@ -9,7 +9,6 @@ section .text
 
 ft_strcpy:	;ft_strcpy(char *dest, char *src)
 	xor rax, rax		;reset rax(counter)
-	jmp .loop_ft_strcpy	;jump to loop
 
 .loop_ft_strcpy:
 	cmp byte [rsi + rax], byte 0;check if src is at end
