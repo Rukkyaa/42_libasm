@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-extern size_t ft_strlen(const char *s); // Déclaration de la fonction assembleur
+size_t ft_strlen(const char *s); // Déclaration de la fonction assembleur
 
 int main() {
     const char *str = "Hello world !";
