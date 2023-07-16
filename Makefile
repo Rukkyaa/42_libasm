@@ -6,6 +6,9 @@ SRCS = $(addprefix srcs/ft_, $(addsuffix .s, \
 OBJS = $(SRCS:.s=.o)
 DEPS = $(SRCS:.s=.d)
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
 AS = nasm
 ASFLAGS = -f elf64
 
@@ -24,8 +27,11 @@ $(NAME): $(OBJS)
 
 -include $(DEPS)
 
-run: $(NAME)
-	gcc -Wall -Wextra -Werror main.c -L. -lasm -o $(EXEC)
+exec: $(NAME)
+	$(CC) $(CFLAGS) -Iincludes main.c -L. -lasm -o $(EXEC)
+
+run: exec
+	./$(EXEC)
 
 clean:
 	$(RM) $(OBJS) $(DEPS)

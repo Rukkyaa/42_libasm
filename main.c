@@ -1,6 +1,4 @@
-#include <stdio.h>
-
-size_t ft_strlen(const char *s); // Déclaration de la fonction assembleur
+#include "libasm.h"
 
 int main() {
     const char *str = "Hello world !";
