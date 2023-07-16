@@ -1,10 +1,10 @@
 NAME = libasm.a
 EXEC = libasm
 
-SRCS = $(addprefix srcs/ft_, $(addsuffix .s, \
+SRCS = $(addprefix ft_, $(addsuffix .s, \
 	strlen))
-OBJS = $(SRCS:.s=.o)
-DEPS = $(SRCS:.s=.d)
+OBJS = $(SRCS:%.s=srcs/.build/%.o)
+DEPS = $(SRCS:%.s=srcs/.build/%.d)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -22,8 +22,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-%.o: %.s
-	$(AS) $(ASFLAGS) $< -o $@ -MD -MP -MF $(<:.s=.d)
+srcs/.build/%.o: srcs/%.s
+	mkdir -p $(dir $@)
+	$(AS) $(ASFLAGS) $< -o $@ -MD -MP -MF $(@:.o=.d)
 
 -include $(DEPS)
 
@@ -34,7 +35,7 @@ run: exec
 	./$(EXEC)
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) -rf srcs/.build
 
 fclean: clean
 	$(RM) $(NAME)
