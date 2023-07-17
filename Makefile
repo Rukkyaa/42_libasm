@@ -4,7 +4,8 @@ EXEC = libasm
 SRCS = $(addprefix ft_, $(addsuffix .s, \
 	strlen \
 	strcpy \
-	strcmp))
+	strcmp \
+	write))
 OBJS = $(SRCS:%.s=srcs/.build/%.o)
 DEPS = $(SRCS:%.s=srcs/.build/%.d)
 

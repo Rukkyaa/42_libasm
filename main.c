@@ -1,12 +1,13 @@
 #include "libasm.h"
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
+#include <unistd.h>
 
 int main() {
-    char *source = "Chichi";
-    char *destination = "zhichi";
-
-    printf("My res: %d\n", ft_strcmp(source, destination));
-    printf("Res: %d\n", strcmp(source, destination));
+    // write(-1, "Hello World!\n", 13);
+    // printf("errno: %d\n", errno);
+    printf("%ld\n", ft_write(1, "Hello World!\n", 13));
+    printf("errno: %d\n", errno);
     return 0;
 }
