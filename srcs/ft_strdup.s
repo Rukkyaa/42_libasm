@@ -12,9 +12,9 @@ section .text
 	extern ft_strcpy
 
 ft_strdup:
-	call	ft_strlen		;rax = ft_strlen(rdi)
-	inc rax					;increment rax to include '\0'
-	push rdi				;push rdi to the stack
+	call ft_strlen          ;rax = ft_strlen(rdi)
+	inc rax                 ;increment rax to include '\0'
+	push rdi                ;push rdi to the stack
 	mov rdi, rax			;rdi = rax 
 	call malloc wrt ..plt	;call malloc with length of string(rax)
 	mov rdi, rax			;moving dst's string to rdi
